@@ -1,11 +1,9 @@
-import './App.css';
+import './App.scss';
+import Home from "./pages/home/Home"
+
 
 function App() {
-  return (
-    <div className="App">
-        Hello Jesus
-    </div>
-  );
+	return <Home />
 }
 
 export default App;
