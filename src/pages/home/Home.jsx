@@ -2,7 +2,9 @@ import "./Home.scss"
 // import Navbar from "../../components/navbar/Navbar"
 // import Featured from "../../components/featrued/Featured"
 // import List from "../../components/list/List"
-import Watch from "../watch/Watch"
+// import Watch from "../watch/Watch"
+import Login from "../login/Login"
+import Register from "../register/Register"
 
 
 const Home = () => {
@@ -17,7 +19,8 @@ const Home = () => {
                               <List />
                               <List /> */}
 
-                              <Watch />
+                              {/* <Watch /> */}
+                              <Login />
                               
                     </div>
           )
