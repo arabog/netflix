@@ -3,7 +3,7 @@ import "./Home.scss"
 // import Featured from "../../components/featrued/Featured"
 // import List from "../../components/list/List"
 // import Watch from "../watch/Watch"
-import Login from "../login/Login"
+// import Login from "../login/Login"
 import Register from "../register/Register"
 
 
@@ -20,7 +20,9 @@ const Home = () => {
                               <List /> */}
 
                               {/* <Watch /> */}
-                              <Login />
+                              {/* <Login /> */}
+
+                              <Register />
                               
                     </div>
           )
