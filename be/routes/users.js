@@ -12,7 +12,7 @@ router.delete("/:id", verify, userController.delUser)
 
 
 // get a user
-router.get("/fing/:id", verify, userController.getUser)
+router.get("/find/:id", verify, userController.getUser)
 
 
 // get all users

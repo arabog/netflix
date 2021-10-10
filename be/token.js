@@ -7,11 +7,17 @@ function verify(req, res, next) {
           if(authHeader) {
                     const token = authHeader.split(" ")[1]
 
-                    jwt.verify(token, 
-                              (err, user) => {
+
+                    jwt.verify( 
+                              token, 
+                              
+                              process.env.SECRET_KEY, 
+                              
+                              // userAuth is coming from accesstoken in auth.js
+                              (err, userAuth) => {
                                         if(err) res.status(403).json("Token is not valid!")
 
-                                        req.user = user
+                                        req.user = userAuth
 
                                         next()
                               }          

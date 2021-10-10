@@ -1,12 +1,13 @@
 const User = require("../models/User")
 const CryptoJS = require("crypto-js")
-
+const verify = require("../token")
 
 
 module.exports = {
           // update
           updateUser: async(req, res) => {
                     if(req.user.id === req.params.id || req.user.isAdmin) {
+                              // is pword changing?
                               if(req.body.password) {
                                         req.body.password = CryptoJS.AES.encrypt(
                                                   req.body.password,
@@ -17,10 +18,12 @@ module.exports = {
 
                               try {
                                         const updatedUser = await User.findByIdAndUpdate(
+                                                  // d id u look 4 using findByIdAndUpdate
                                                   req.params.id,
 
                                                   {$set: req.body},
 
+                                                  // return d updated body info
                                                   {new: true}
                                         )
 
@@ -38,10 +41,11 @@ module.exports = {
 
           // delete
           delUser: async (req, res) => {
+                    // req.user is from d token(jwt) file
                     if(req.user.id === req.params.id || req.user.isAdmin) {
                               try {
                                         await User.findByIdAndDelete(req.params.id)
-
+                                        
                                         res.status(200).json("User has been deleted.....")
                               } catch (err) {
                                         res.status(500).json(err)
@@ -51,6 +55,7 @@ module.exports = {
                               res.status(403).json("You can delete only your account!")
                     }
           },
+
 
           // get 
           getUser: async (req, res) => {
@@ -67,7 +72,7 @@ module.exports = {
           },
 
 
-          // get all users
+          // // get all users
           getAllUsers: async(req, res) => {
                     const query = req.query.new
 
@@ -88,7 +93,7 @@ module.exports = {
           },
 
 
-          // get user stats
+          // // get user stats
           getUserStats: async(req, res) => {
                     const today = new Date()
                     const latYear = today.setFullYear(today.setFullYear() - 1)

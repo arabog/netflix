@@ -11,15 +11,18 @@ dotenv.config({path: "./db/.env"})
 const port = process.env.port || 9090
 
 
-connectDB()
-
 // routes
 const authRoute = require("./routes/auth")
 const userRoute = require("./routes/users")
-const movieRoute = require("./routes/movies")
-const listRoute = require("./routes/lists")
+// const movieRoute = require("./routes/movies")
+// const listRoute = require("./routes/lists")
 
 
+// db
+connectDB()
+
+
+// middleware
 app.use(express.json())
 
 

@@ -44,7 +44,11 @@ module.exports = {
 
                               // jwt
                               const accessToken = jwt.sign(
-                                        {id: user._id, idAdmin: user.isAdmin},
+                                        {
+                                                  // dse will be used in d user ctrller and token(jwt) file
+                                                  id: user._id, 
+                                                  isAdmin: user.isAdmin
+                                        },
 
                                         process.env.SECRET_KEY,
 
