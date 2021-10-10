@@ -10,6 +10,7 @@ module.exports = {
                               {
                                         username: req.body.username,
                                         email: req.body.email,
+
                                         password:  CryptoJS.AES.encrypt(
                                                   req.body.password, 
                                                   process.env.SECRET_KEY
@@ -52,7 +53,7 @@ module.exports = {
 
                               const { password, ...info } = user._doc
 
-                              res.status(200).json( { ...info, accessToken })
+                              res.status(200).json( { info, accessToken })
 
                     }catch(err) {
                               res.status(500).json(err)

@@ -2,8 +2,6 @@ const express = require("express")
 const app = express()
 const dotenv = require("dotenv")
 
-// routes
-const authRoute = require("./routes/auth")
 
 const connectDB = require("./db/db")
 
@@ -15,11 +13,19 @@ const port = process.env.port || 9090
 
 connectDB()
 
+// routes
+const authRoute = require("./routes/auth")
+const userRoute = require("./routes/users")
+const movieRoute = require("./routes/movies")
+const listRoute = require("./routes/lists")
+
 
 app.use(express.json())
 
 
 app.use("/api/auth", authRoute)
+app.use("/api/users", userRoute)
+
 
 
 app.listen(port, () => {

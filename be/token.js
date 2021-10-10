@@ -1,4 +1,4 @@
-const jwt = required("jsonwebtoken")
+const jwt = require("jsonwebtoken")
 
 
 function verify(req, res, next) {
