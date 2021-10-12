@@ -1,4 +1,5 @@
 import "./navbar.scss"
+
 import { 
           ArrowDropDown, 
           Notifications, 
@@ -6,6 +7,8 @@ import {
           ArrowDropUp 
 } from "@material-ui/icons"
 import { useState } from "react"
+import { Link } from "react-router-dom"
+
 
 
 const Navbar = () => {
@@ -28,18 +31,35 @@ const Navbar = () => {
 						alt=""
 					/>
 
-                                                  <span> Home </span>
-                                                  <span> Series </span>
-                                                  <span> Movies </span>
-                                                  <span> New and Popular </span>
-                                                  <span> My List </span>
+                                                  <Link className="link" to="/">
+                                                            <span> Home </span>
+                                                  </Link>
+
+                                                  <Link className="link" to="/series">
+                                                            <span> Series </span>
+                                                  </Link>
+
+                                                  <Link className="link" to="/movies">
+                                                            <span> Movies </span>
+                                                  </Link>
+
+                                                  <Link className="link" to="/new">
+                                                            <span> New and Popular </span>
+                                                  </Link>
+
+                                                  <Link className="link" to="/list">
+                                                            <span> My List </span>
+                                                  </Link>
+                                                  
                                         </div>
 
 
                                         <div className="right">
                                                   <Search className="icon" />
 
-                                                  <span> KID </span>
+                                                  <Link className="link" to="/kid">
+                                                            <span> KID </span>
+                                                  </Link>
 
                                                   <Notifications className="icon" />
 
@@ -54,20 +74,39 @@ const Navbar = () => {
                                                             <div className="options">
                                                                       <ArrowDropUp className="icon up" />
 
-                                                                      <span> Your profile </span>
-                                                                      <span> Your repositories </span>
-                                                                      <span> Your codespaces </span>
-                                                                      <span> Your projects </span>
-                                                                      <span> Your stars </span>
-                                                                      <span> Your gists </span>
+                                                                      <Link className="link" to="/profile">
+                                                                                <span> Your profile </span>
+                                                                      </Link>
+
+                                                                      <Link className="link" to="/repos">
+                                                                                <span> Your repositories </span>
+                                                                      </Link>
+                                                                      
+                                                                      <Link className="link" to="/code">
+                                                                                <span> Your codespaces </span>
+                                                                      </Link>
+                                                                      
+                                                                      <Link className="link" to="/proj">
+                                                                                <span> Your projects </span>
+                                                                      </Link>
+                                                                      
+                                                                      <Link className="link" to="/stars">
+                                                                                <span> Your stars </span>
+                                                                      </Link>
+                                                                      
+                                                                      <Link className="link" to="/gists">
+                                                                                <span> Your gists </span>
+                                                                      </Link>
 
                                                                       <hr />
-
-                                                                      <span> Settings </span>
+                                                                      <Link className="link" to="/settings">
+                                                                                <span> Settings </span>
+                                                                      </Link>
 
                                                                       <hr />
-
-                                                                      <span> Logout </span>
+                                                                      <Link className="link" to="/logout">
+                                                                                <span> Logout </span>
+                                                                      </Link>
                                                             </div>
                                                   </div>
                                         </div>

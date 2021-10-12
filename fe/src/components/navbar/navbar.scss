@@ -67,12 +67,19 @@
                                                   display: none;
                                                   background: var(--main-color);
                                                   border-radius: 5px;
+                                        
+
+                                                  .link {
+                                                            padding: 10px;
+                                                            cursor: pointer;
+                                                  }
                                         }
                                         
-                                        span {
-                                                  padding: 10px;
-                                                  cursor: pointer;
-                                        }
+
+                                        // span:nth:last-child {
+                                        //           padding: 10px;
+                                        //           cursor: pointer;
+                                        // }
 
                                         .icon.up {
                                                   position: absolute;
@@ -97,7 +104,14 @@
                                                             padding: 15px 10px;
                                                             width: 150px;
                                                             margin-top: 5px;
+
+
+                                                            // span {
+                                                            //           background: blue;
+                                                            //           width: 100%;
+                                                            // }
                                                   }
+
 
                                         }
                               }
