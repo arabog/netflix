@@ -1,8 +1,32 @@
 import "./featured.scss"
 import { PlayArrow, InfoOutlined } from "@material-ui/icons"
+import { useEffect, useState } from "react"
+import axios from "axios"
 
 
-export default function Featured( {type } ) {
+export default function Featured( {type, setGenre } ) {
+          const [content, setContent] = useState({})
+
+          useEffect(() => {
+                    const getRandomMovies = async () => {
+                              try {
+                                        const res = await axios.get(`/movies/random?type=${type}`,
+                                                  {
+                                                            headers: {
+                                                                      token: 
+                                                                      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNjIwN2MxMDM1ZGJlMzdlYjQxNGEzOSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYzMzkzMzU5OCwiZXhwIjoxNjM0MzY1NTk4fQ.YYHEqnKPo5fTdfTqLZZj6H3ioBjDxuT64AlULcRHGiY" 
+                                                            }
+                                                  }
+                                        )
+
+                                        setContent(res.data[0])
+                              } catch (err) {
+                                        console.log(err)
+                              }
+                    }
+
+                    getRandomMovies()
+          }, [type])
 
 
           return (
@@ -32,20 +56,18 @@ export default function Featured( {type } ) {
                               }
 
                               <img 
-                                        src="https://images.pexels.com/photos/6899260/pexels-photo-6899260.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" 
+                                        src= {content.img}
                                         alt="" 
                               />
 
                               <div className="info">
                                         <img 
-                                                  src="https://occ-0-1432-1433.1.nflxso.net/dnm/api/v6/LmEnxtiAuzezXBjYXPuDgfZ4zZQ/AAAABUZdeG1DrMstq-YKHZ-dA-cx2uQN_YbCYx7RABDk0y7F8ZK6nzgCz4bp5qJVgMizPbVpIvXrd4xMBQAuNe0xmuW2WjoeGMDn1cFO.webp?r=df1" 
+                                                  src= {content.imgTitle}
                                                   alt="" 
                                         />
 
                                         <span className="desc">
-                                                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-                                                  Consequuntur sed atque saepe quaerat nemo magni quia 
-                                                  suscipit corrupti quo pariatur?
+                                                  {content.desc}
                                         </span>
 
                                         <div className="buttons">

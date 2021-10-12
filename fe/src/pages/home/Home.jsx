@@ -10,6 +10,7 @@ const Home = ( { type } ) => {
           const [ lists, setLists ] = useState([])
           const [ genre, setGenre ] = useState(null)
 
+
           useEffect (() => {
                     const getLists =  async () => {
                               try {
@@ -34,6 +35,7 @@ const Home = ( { type } ) => {
                     getLists()
           }, [genre, type])
 
+          console.log(genre)
 
           return (
                     <div className="home">

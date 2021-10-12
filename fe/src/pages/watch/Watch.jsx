@@ -11,7 +11,7 @@ export default function Watch() {
           return (
                     <div className="watch">
                               <Link to="/">
-                              <div className="back"> 
+                                        <div className="back"> 
                                                   <ArrowBackOutlined className ="icon" />
                                                   Home
                                         </div>
