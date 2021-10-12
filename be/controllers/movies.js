@@ -88,18 +88,19 @@ module.exports = {
                                                   [
                                                             {$match: {isSeries: true}},
 
-                                                            {$sample: {size: 1}}
+                                                            {$sample: {size: 4}}
                                                   ]
                                         )
                               }else {
                                         movie = await Movie.aggregate(
                                                   [
                                                             {$match: {isSeries: false}},
-                                                            {$sample: {size: 1}}
+                                                            {$sample: {size: 4}}
                                                   ]
                                         )
                               }
 
+                              res.status(200).json(movie)
 
                     } catch (err) {
                               
