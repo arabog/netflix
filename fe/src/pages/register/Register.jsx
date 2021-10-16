@@ -1,22 +1,47 @@
 import "./register.scss"
 import { useState, useRef } from "react"
+import { useHistory } from "react-router"
+import axios from "axios"
+import { Link } from "react-router-dom"
 
 
 export default function Register() {
           const [email, setEmail] = useState("")
           const [password, setPassword] = useState("")
+          const [username, setUsername] = useState("")
+
+
+          const history = useHistory()
 
 
           const emailRef = useRef()
           const passwordRef = useRef()
+          const usernameRef = useRef()
 
 
           const handleStart = () => {
                     setEmail(emailRef.current.value)
           }
 
-          const handleFinish = () => {
+          const handleFinish = async (e) => {
+                    e.preventDefault()
+
                     setPassword(passwordRef.current.value)
+                    setUsername(usernameRef.current.value)
+
+                    try {
+                              await axios.post("auth/register", 
+                                        {
+                                                  email,
+                                                  username,
+                                                  password
+                                        }
+                              )
+
+                              history.push("/login")
+                    } catch (err) {
+                              
+                    }
           }
 
 
@@ -30,7 +55,9 @@ export default function Register() {
 						alt=""
 					/>
 
-					<button className="loginButton">Sign In</button>
+					<Link to="/login">
+                                                            <button className="loginButton">Sign In</button>
+                                                  </Link>
 				</div>
 			</div>
 
@@ -63,6 +90,12 @@ export default function Register() {
                                                   )
                                                   : (
                                                             <form className="input">
+                                                                                <input 
+                                                                                          type="username" 
+                                                                                          placeholder="username" 
+                                                                                          ref={usernameRef}
+                                                                                />
+                                                                                
                                                                                 <input 
                                                                                           type="password" 
                                                                                           placeholder="password" 

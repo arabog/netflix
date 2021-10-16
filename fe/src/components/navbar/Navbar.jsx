@@ -6,13 +6,18 @@ import {
           Search, 
           ArrowDropUp 
 } from "@material-ui/icons"
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { Link } from "react-router-dom"
+
+import { AuthContext } from "../../authContext/AuthContext"
+import { logout } from "../../authContext/AuthActions"
 
 
 
 const Navbar = () => {
           const [isScrolled, setIsScrolled] =  useState(false)
+          const { dispatch } = useContext(AuthContext)
+
 
           window.onscroll = () => {
                     setIsScrolled(window.pageYOffset === 0 ? false : true )
@@ -105,7 +110,7 @@ const Navbar = () => {
 
                                                                       <hr />
                                                                       <Link className="link" to="/logout">
-                                                                                <span> Logout </span>
+                                                                                <span onClick={() => dispatch(logout())}> Logout </span>
                                                                       </Link>
                                                             </div>
                                                   </div>

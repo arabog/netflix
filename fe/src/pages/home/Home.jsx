@@ -35,7 +35,7 @@ const Home = ( { type } ) => {
                     getLists()
           }, [genre, type])
 
-          console.log(genre)
+          console.log(lists)
 
           return (
                     <div className="home">
